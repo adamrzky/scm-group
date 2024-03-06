@@ -120,7 +120,7 @@ Route::controller(ProductController::class)->group(function () {
 Route::controller(Product2Controller::class)->group(function () {
     Route::get('/product2/all', 'ProductAll')->name('product2.all'); 
     Route::get('/product2/add', 'ProductAdd')->name('product2.add');
-    Route::post('/product2/store', 'ProductStore')->name('product2.store');
+    Route::post('/product2/addStore', 'ProductStore')->name('productAdd.store');
     Route::post('/product2/store', 'ProductBatchStore')->name('productBatch.store');
     Route::get('/product2/edit/{id}', 'ProductEdit')->name('product2.edit');
     Route::get('/product2/batch/{id}', 'ProductBatch')->name('product2.batch');

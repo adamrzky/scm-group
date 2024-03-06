@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Add New Product</h4>
-                        <form action="{{ route('product2.store') }}" method="POST">
+                        <form action="{{ route('productAdd.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="SLoc" class="form-label">SLoc</label>
