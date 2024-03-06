@@ -20,6 +20,9 @@
                         <h4 class="card-title">Add New Product</h4>
                         <form action="{{ route('productAdd.store') }}" method="POST">
                             @csrf
+
+                            <input type="text" class="form-control" id="status_trx" name="status_trx" value="0" required hidden>
+
                             <div class="mb-3">
                                 <label for="SLoc" class="form-label">SLoc</label>
                                 <input type="text" class="form-control" id="SLoc" name="SLoc" required>

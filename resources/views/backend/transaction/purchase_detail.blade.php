@@ -26,7 +26,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-12">
                                     <div class="invoice-title">
 
@@ -52,11 +52,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
 
 
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-12">
                                     <div>
                                         <div class="p-2">
@@ -71,7 +71,7 @@
                                     </div>
 
                                 </div>
-                            </div> <!-- end row -->
+                            </div> <!-- end row --> --}}
 
 
 
@@ -88,16 +88,12 @@
                                                 <table class="table">
                                                     <thead>
                                                         <tr>
-                                                            <td><strong>Sl </strong></td>
+                                                            <td><strong>Sl</strong></td>
+                                                            <td class="text-center"><strong>Date</strong></td>
                                                             <td class="text-center"><strong>Customer Name </strong></td>
-                                                            <td class="text-center"><strong>Invoice No </strong>
-                                                            </td>
-                                                            <td class="text-center"><strong>Date</strong>
-                                                            </td>
-                                                            <td class="text-center"><strong>Description</strong>
-                                                            </td>
-                                                            <td class="text-center"><strong>Amount </strong>
-                                                            </td>
+                                                            <td class="text-center"><strong>Status Trx </strong></td>
+                                                            <td class="text-center"><strong>QTY </strong></td>
+                                                            
 
 
                                                         </tr>
@@ -105,26 +101,45 @@
                                                     <tbody>
                                                         <!-- foreach ($order->lineItems as $line) or some such thing here -->
 
-                                                        @php
+                                                        {{-- @php
                                                             $total_sum = '0';
-                                                        @endphp
+                                                        @endphp --}}
                                                         @foreach ($allData as $key => $item)
+                                                        {{-- {{dd($item['customer']['name'])}} --}}
                                                             <tr>
-                                                                <td class="text-center">{{ $key + 1 }}</td>
+                                                                <td>{{ $key + 1 }}</td>
                                                                 <td class="text-center">
-                                                                    {{ $item['payment']['customer']['name'] }}</td>
-                                                                <td class="text-center">#{{ $item->invoice_no }}</td>
+                                                                    {{ $item->date}}
+                                                                </td>
                                                                 <td class="text-center">
-                                                                    {{ date('d-m-Y', strtotime($item->date)) }}</td>
-                                                                <td class="text-center">{{ $item->description }}</td>
+                                                                    {{ $item['customer']['name'] ?? '-' }}
+                                                                </td>
                                                                 <td class="text-center">
-                                                                    {{ $item['payment']['total_amount'] }}</td>
+                                                                    @if ($item->status_trx == 0)
+                                                                        <span class="text-success">In</span>
+                                                                    @elseif ($item->status_trx == 1)
+                                                                        <span class="text-danger">Out</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    @if ($item->status_trx == 0)
+                                                                        <span class="text-success">{{ $item->qty_in }}</span>
+                                                                    @else
+                                                                        <span class="text-danger">{{ $item->qty_out }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                
+                                                                
+                                                                
+
+                                                                
+                                                               
 
 
                                                             </tr>
-                                                            @php
-                                                                $total_sum += $item['payment']['total_amount'];
-                                                            @endphp
+                                                            {{-- @php
+                                                                $total_sum += ;
+                                                            @endphp --}}
                                                         @endforeach
 
 
@@ -138,7 +153,7 @@
                                                                 <strong>Grand Amount</strong>
                                                             </td>
                                                             <td class="no-line text-end">
-                                                                <h4 class="m-0">${{ $total_sum }}</h4>
+                                                                {{-- <h4 class="m-0">${{ $total_sum }}</h4> --}}
                                                             </td>
                                                         </tr>
                                                     </tbody>

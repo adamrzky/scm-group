@@ -150,7 +150,9 @@ Route::controller(PurchaseController::class)->group(function () {
 // Trx All Route 
 Route::controller(TransactionController::class)->group(function () {
     Route::get('/trx.all', 'PurchaseAll')->name('trx.all'); 
+    Route::get('/trxIn.all', 'PurchaseInAll')->name('trxIn.all'); 
     Route::get('/trx.add', 'PurchaseAdd')->name('trx.add');
+    Route::get('/trx/detail/{id}', 'PurchaseDetail')->name('trx.detail');
     Route::post('/trx.store', 'PurchaseStore')->name('trx.store');
     Route::get('/trx.delete/{id}', 'PurchaseDelete')->name('trx.delete');
     Route::get('/trx.pending', 'PurchasePending')->name('trx.pending');

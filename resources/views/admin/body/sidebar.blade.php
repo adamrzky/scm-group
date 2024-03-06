@@ -168,7 +168,8 @@
                         <span>History Transaction</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('trx.all') }}">History</a></li>
+                        <li><a href="{{ route('trxIn.all') }}">Inbound Trx</a></li>
+                        <li><a href="{{ route('trx.all') }}">Outbpund Trx</a></li>
 
                     </ul>
                 </li>
