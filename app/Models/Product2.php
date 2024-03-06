@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Product2 extends Model
 {
     use HasFactory;
-
     protected $table = 'products2';
+    
+    // public function customer(){
+    //     return $this->belongsTo(Customer::class,'customer_id','id');
+    // } 
 
     protected $primaryKey = 'id'; // Menentukan kunci utama
 
@@ -26,4 +29,5 @@ class Product2 extends Model
         // 'created_at',
         // 'updated_at',
     ];
+
 }

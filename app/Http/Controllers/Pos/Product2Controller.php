@@ -8,6 +8,8 @@ use App\Models\Product2;
 use App\Models\Category;
 use App\Models\Supplier;
 use App\Models\Unit;
+use App\Models\Customer;
+use App\Models\Transaction;
 use Auth;
 use Illuminate\Support\Carbon;
 
@@ -116,14 +118,17 @@ class Product2Controller extends Controller
 
         $supplier = Supplier::all();
         $category = Category::all();
+        $costomer = Customer::all();
         $unit = Unit::all();
         $product = Product2::where('id', $id)->firstOrFail();
 
-        return view('backend.product2.product_qty', compact('product', 'supplier', 'category', 'unit'));
+        return view('backend.product2.product_qty', compact('product', 'supplier', 'category', 'unit','costomer'));
     } // End Method 
 
     public function ProductQtyUpdate(Request $request)
     {
+
+        // dd($request);
         try {
             $product = Product2::findOrFail($request->id);
     
@@ -154,6 +159,27 @@ class Product2Controller extends Controller
                 'created_at' => $request->created_at,
                 'updated_at' => now(),
             ]);
+
+
+            //historyTran
+
+            $transaction = new Transaction();
+            $transaction->date = date('Y-m-d', strtotime($request->date));
+            $transaction->purchase_no = $request->purchase_no;
+            // $transaction->supplier_id = $request->supplier_id;
+            // $transaction->category_id = $request->category_id;
+            $transaction->category_id = $request->customer_id;
+
+            $transaction->product_id = $request->id;
+            $transaction->buying_qty = $request->reduce_qty;
+            // $transaction->unit_price = $request->unit_price;
+            // $transaction->buying_price = $request->buying_price;
+            $transaction->description = $request->description;
+
+            $transaction->created_by = Auth::user()->id;
+            $transaction->status = '0';
+            $transaction->save();
+
     
             $notification = [
                 'message' => 'Product Updated Successfully',

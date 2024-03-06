@@ -10,6 +10,7 @@ use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\ProductController;
 use App\Http\Controllers\Pos\Product2Controller;
 use App\Http\Controllers\Pos\PurchaseController;
+use App\Http\Controllers\Pos\TransactionController;
 use App\Http\Controllers\Pos\DefaultController;
 use App\Http\Controllers\Pos\InvoiceController;
 use App\Http\Controllers\Pos\StockController;
@@ -143,6 +144,20 @@ Route::controller(PurchaseController::class)->group(function () {
 
     Route::get('/daily/purchase/report', 'DailyPurchaseReport')->name('daily.purchase.report');
     Route::get('/daily/purchase/pdf', 'DailyPurchasePdf')->name('daily.purchase.pdf');
+     
+});
+
+// Trx All Route 
+Route::controller(TransactionController::class)->group(function () {
+    Route::get('/trx.all', 'PurchaseAll')->name('trx.all'); 
+    Route::get('/trx.add', 'PurchaseAdd')->name('trx.add');
+    Route::post('/trx.store', 'PurchaseStore')->name('trx.store');
+    Route::get('/trx.delete/{id}', 'PurchaseDelete')->name('trx.delete');
+    Route::get('/trx.pending', 'PurchasePending')->name('trx.pending');
+    Route::get('/trx.approve/{id}', 'PurchaseApprove')->name('trx.approve');
+
+    Route::get('/daily/trx.report', 'DailyPurchaseReport')->name('daily.trx.report');
+    Route::get('/daily/trx.pdf', 'DailyPurchasePdf')->name('daily.trx.pdf');
      
 });
 
