@@ -72,7 +72,7 @@
 
                                     <div class="form-group col-md-9">
                                         <label> Customer Name </label>
-                                        <select name="customer_id" id="customer_id" class="form-select select2">
+                                        <select name="customer_id" id="customer_id" class="form-select select2" required>
                                             <option value="">Select Customer </option>
                                             @foreach ($costomer as $cust)
                                                 <option value="{{ $cust->id }}">{{ $cust->name }} -
@@ -81,6 +81,7 @@
                                             <option value="0">New Customer </option>
                                         </select>
                                     </div>
+                                    
 
                                       <!-- Hide Add Customer Form -->
                                       <div class="row new_customer" style="display:none">

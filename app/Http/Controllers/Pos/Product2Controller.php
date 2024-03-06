@@ -163,6 +163,10 @@ class Product2Controller extends Controller
 
             //historyTran
 
+            $request->validate([
+                'customer_id' => 'required',
+            ]);
+
             $transaction = new Transaction();
             $transaction->date = date('Y-m-d', strtotime($request->date));
             $transaction->purchase_no = $request->purchase_no;
