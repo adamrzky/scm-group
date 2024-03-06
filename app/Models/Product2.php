@@ -10,9 +10,9 @@ class Product2 extends Model
     use HasFactory;
     protected $table = 'products2';
     
-    // public function customer(){
-    //     return $this->belongsTo(Customer::class,'customer_id','id');
-    // } 
+    public function customer(){
+        return $this->hasMany(Customer::class,'customer_id','id');
+    } 
 
     protected $primaryKey = 'id'; // Menentukan kunci utama
 

@@ -36,6 +36,7 @@
                                         <th>SOC</th>
                                         <th>Customer Name</th>
                                         <th>Product Name</th>
+                                        <th>Batch</th>
                                         <th>Qty</th>
                                         <th>Description</th>
                                         {{-- <th>Status</th> --}}
@@ -48,13 +49,14 @@
                                 <tbody>
 
                                     @foreach ($allData as $key => $item)
-                                    {{-- {{dd($item['payment']['product'])}} --}}
+                                    {{-- {{dd($item['product2'])}} --}}
                                         <tr>
                                             <td> {{ $key + 1 }} </td>
                                             <td> {{ date('d-m-Y', strtotime($item->date)) }} </td>
                                             <td> {{ $item->purchase_no }} </td>
-                                            <td> {{ $item['payment']['customer']['name'] }} </td>
-                                            <td> {{ $item['payment']['customer']['name'] }} </td>
+                                            <td> {{ $item['customer']['name'] }} </td>
+                                            <td> {{ $item['product2']['MaterialDesscription'] }} </td>
+                                            <td> {{ $item['product2']['SystemBatch'] }} </td>
                                             <td> {{ $item->buying_qty }} </td>
                                             <td> {{ $item->description }} </td>
                                             {{-- <td> {{ $item['category']['name'] }} </td> --}}

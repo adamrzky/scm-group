@@ -44,7 +44,7 @@
                                 <tbody>
 
                                     @foreach ($allData as $key => $item)
-                                    {{dd($item['payment'])}}
+                                    {{-- {{dd($item['payment'])}} --}}
                                         <tr>
                                             <td> {{ $key + 1 }} </td>
                                             <td> {{ $item['payment']['customer']['name'] }} </td>

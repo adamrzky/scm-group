@@ -168,7 +168,7 @@ class Product2Controller extends Controller
             $transaction->purchase_no = $request->purchase_no;
             // $transaction->supplier_id = $request->supplier_id;
             // $transaction->category_id = $request->category_id;
-            $transaction->category_id = $request->customer_id;
+            $transaction->customer_id = $request->customer_id;
 
             $transaction->product_id = $request->id;
             $transaction->buying_qty = $request->reduce_qty;

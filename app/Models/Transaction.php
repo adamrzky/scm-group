@@ -10,6 +10,11 @@ class Transaction extends Model
     use HasFactory;
     protected $guarded = [];
 
+
+    public function customer(){
+        return $this->belongsTo(Customer::class,'customer_id','id');
+    } 
+
     public function payment(){
         return $this->belongsTo(Payment::class,'id','invoice_id');
     }
