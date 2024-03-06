@@ -30,13 +30,14 @@ class TransactionController extends Controller
 
     public function purchaseDetail($systemBatch)
     {
+        $batch = $systemBatch ;
         $allData = Transaction::whereHas('product2', function ($query) use ($systemBatch) {
             $query->where('SystemBatch', $systemBatch);
         })->orderBy('date', 'desc')
           ->orderBy('id', 'desc')
           ->get();
     
-        return view('backend.transaction.purchase_detail', compact('allData'));
+        return view('backend.transaction.purchase_detail', compact('allData','batch'));
     }
     
 
