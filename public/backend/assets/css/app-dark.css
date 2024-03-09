@@ -72,6 +72,11 @@ File: Main Css File
 .logo {
   line-height: 70px;
 }
+
+.logoFooter {
+  line-height: 1px;
+}
+
 .logo .logo-sm {
   display: none;
 }
