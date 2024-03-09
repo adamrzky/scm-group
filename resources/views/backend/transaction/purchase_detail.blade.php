@@ -149,12 +149,12 @@
                                                             <td class="no-line"></td>
                                                             <td class="no-line"></td>
                                                             <td class="no-line"></td>
-                                                            <td class="no-line text-center">
+                                                            {{-- <td class="no-line text-center">
                                                                 <strong>Grand Amount</strong>
+                                                            </td> --}}
+                                                            <td class="text-center">VendorBatch : {{ $batch }}
                                                             </td>
-                                                            <td class="no-line text-end">
-                                                                {{-- <h4 class="m-0">${{ $total_sum }}</h4> --}}
-                                                            </td>
+                                                           
                                                         </tr>
                                                     </tbody>
                                                 </table>
