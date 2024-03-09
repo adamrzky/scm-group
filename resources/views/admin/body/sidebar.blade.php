@@ -19,7 +19,7 @@
                  </li> --}}
 
 
-                 <li>
+                 {{-- <li>
                      <a href="javascript: void(0);" class="has-arrow waves-effect">
                          <i class="ri-hotel-fill"></i>
                          <span>Manage Suppliers</span>
@@ -28,7 +28,7 @@
                          <li><a href="{{ route('supplier.all') }}">All Supplier</a></li>
 
                      </ul>
-                 </li>
+                 </li> --}}
 
 
                  <li>
@@ -38,15 +38,15 @@
                      </a>
                      <ul class="sub-menu" aria-expanded="false">
                          <li><a href="{{ route('customer.all') }}">All Customers</a></li>
-                         <li><a href="{{ route('credit.customer') }}">Credit Customers</a></li>
+                         {{-- <li><a href="{{ route('credit.customer') }}">Credit Customers</a></li>
 
                          <li><a href="{{ route('paid.customer') }}">Paid Customers</a></li>
-                         <li><a href="{{ route('customer.wise.report') }}">Customer Wise Report</a></li>
+                         <li><a href="{{ route('customer.wise.report') }}">Customer Wise Report</a></li> --}}
 
                      </ul>
                  </li>
 
-
+{{-- 
                  <li>
                      <a href="javascript: void(0);" class="has-arrow waves-effect">
                          <i class="ri-delete-back-fill"></i>
@@ -67,9 +67,9 @@
                          <li><a href="{{ route('category.all') }}">All Category</a></li>
 
                      </ul>
-                 </li>
+                 </li> --}}
 
-
+{{-- 
                  <li>
                      <a href="javascript: void(0);" class="has-arrow waves-effect">
                          <i class="ri-reddit-fill"></i>
@@ -79,10 +79,10 @@
                          <li><a href="{{ route('product.all') }}">All Product</a></li>
 
                      </ul>
-                 </li>
+                 </li> --}}
 
 
-                 <li>
+                 {{-- <li>
                      <a href="javascript: void(0);" class="has-arrow waves-effect">
                          <i class="ri-oil-fill"></i>
                          <span>Manage Purchase</span>
@@ -108,7 +108,7 @@
                          <li><a href="{{ route('daily.invoice.report') }}">Daily Invoice Report</a></li>
 
                      </ul>
-                 </li>
+                 </li> --}}
 
 
 
@@ -116,7 +116,7 @@
 
 
 
-                 <li class="menu-title">Stock</li>
+                 {{-- <li class="menu-title">Stock</li>
 
                  <li>
                      <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -128,7 +128,7 @@
                          <li><a href="{{ route('stock.supplier.wise') }}">Supplier / Product Wise </a></li>
 
                      </ul>
-                 </li>
+                 </li> --}}
 
                  {{-- <li>
                      <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -169,7 +169,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('trxIn.all') }}">Inbound Trx</a></li>
-                        <li><a href="{{ route('trx.all') }}">Outbpund Trx</a></li>
+                        <li><a href="{{ route('trx.all') }}">Outbound Trx</a></li>
 
                     </ul>
                 </li>

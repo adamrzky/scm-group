@@ -36,11 +36,11 @@
                                         <th>SOC</th>
                                         <th>Customer Name</th>
                                         <th>Product Name</th>
-                                        <th>Batch</th>
+                                        <th>Vendor Batch</th>
                                         <th>Qty</th>
                                         <th>Description</th>
                                         {{-- <th>Status</th> --}}
-                                        {{-- <th>Action</th> --}}
+                                        <th>Action</th>
                                         {{-- <th>Supplier</th> --}}
 
                                 </thead>
@@ -49,19 +49,29 @@
                                 <tbody>
 
                                     @foreach ($allData as $key => $item)
-                                    {{-- {{dd($item['product2'])}} --}}
+                                        {{-- {{dd($item['product2'])}} --}}
                                         <tr>
                                             <td> {{ $key + 1 }} </td>
                                             <td> {{ date('d-m-Y', strtotime($item->date)) }} </td>
                                             <td> {{ $item->purchase_no }} </td>
                                             <td> {{ $item['customer']['name'] }} </td>
                                             <td> {{ $item['product2']['MaterialDesscription'] }} </td>
-                                            <td> {{ $item['product2']['SystemBatch'] }} </td>
+                                            <td> {{ $item['product2']['VendorBatch'] }} </td>
                                             <td> {{ $item->buying_qty }} </td>
                                             <td> {{ $item->description }} </td>
                                             {{-- <td> {{ $item['category']['name'] }} </td> --}}
                                             {{-- <td> {{ $item['product']['name'] }} </td> --}}
 
+
+                                            {{-- <td>
+                                                <a href="{{ route('trx.detail', $item['product2']['SystemBatch']) }}" class="btn btn-info sm"
+                                                title="Detail Trx"> <i class="fas fa-eyes"></i> Detail Trx </a>
+                                            </td> --}}
+                                            <td>
+                                                <a href="{{ route('trx.detail', $item['product2']['VendorBatch']) }}" class="btn btn-info sm"
+                                                    title="Edit Data"> <i class="fas fa-edit"></i> </a>
+
+                                            </td>
                                             {{-- <td>
                                                 @if ($item->status == '0')
                                                     <span class="btn btn-warning">Pending</span>

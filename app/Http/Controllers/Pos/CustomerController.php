@@ -28,13 +28,19 @@ class CustomerController extends Controller
 
     public function CustomerStore(Request $request){
 
-        $image = $request->file('customer_image');
-        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // 343434.png
-        Image::make($image)->resize(200,200)->save('upload/customer/'.$name_gen);
-        $save_url = 'upload/customer/'.$name_gen;
-
+        $save_url = '';
+        if ($request->hasFile('customer_image')) {
+            $image = $request->file('customer_image');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension(); // 343434.png
+            Image::make($image)->resize(200, 200)->save('upload/customer/' . $name_gen);
+            $save_url = 'upload/customer/' . $name_gen;
+    
+            // Lakukan sesuatu dengan $save_url
+        }
         Customer::insert([
             'name' => $request->name,
+            'area' => $request->area,
+            'idh_no' => $request->idh,
             'mobile_no' => $request->mobile_no,
             'email' => $request->email,
             'address' => $request->address,
@@ -74,6 +80,8 @@ class CustomerController extends Controller
 
         Customer::findOrFail($customer_id)->update([
             'name' => $request->name,
+            'area' => $request->area,
+            'idh_no' => $request->idh,
             'mobile_no' => $request->mobile_no,
             'email' => $request->email,
             'address' => $request->address,
@@ -118,7 +126,10 @@ class CustomerController extends Controller
 
         $customers = Customer::findOrFail($id);
         $img = $customers->customer_image;
-        unlink($img);
+        if (!empty($img)) {
+            unlink($img); // Hapus file
+        }
+        // unlink($img);
 
         Customer::findOrFail($id)->delete();
 

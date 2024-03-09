@@ -75,8 +75,8 @@
                                         <select name="customer_id" id="customer_id" class="form-select select2" required>
                                             <option value="">Select Customer </option>
                                             @foreach ($costomer as $cust)
-                                                <option value="{{ $cust->id }}">{{ $cust->name }} -
-                                                    {{ $cust->mobile_no }}</option>
+                                                <option value="{{ $cust->id }}">{{ $cust->name }} - {{ $cust->area }}
+                                                    {{ $cust->idh_no }}</option>
                                             @endforeach
                                             <option value="0">New Customer </option>
                                         </select>
@@ -130,9 +130,9 @@
                                             value="{{ $product->SystemBatch }}" readonly>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="VendorBatch" class="form-label" hidden>Vendor Batch</label>
+                                        <label for="VendorBatch" class="form-label">Vendor Batch</label>
                                         <input type="text" class="form-control" id="VendorBatch" name="VendorBatch"
-                                            value="{{ $product->VendorBatch }}" readonly hidden>
+                                            value="{{ $product->VendorBatch }}" readonly>
                                     </div>
 
                                   

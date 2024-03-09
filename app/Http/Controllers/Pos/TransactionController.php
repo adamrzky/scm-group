@@ -32,7 +32,7 @@ class TransactionController extends Controller
     {
         $batch = $systemBatch ;
         $allData = Transaction::whereHas('product2', function ($query) use ($systemBatch) {
-            $query->where('SystemBatch', $systemBatch);
+            $query->where('VendorBatch', $systemBatch);
         })->orderBy('date', 'desc')
           ->orderBy('id', 'desc')
           ->get();

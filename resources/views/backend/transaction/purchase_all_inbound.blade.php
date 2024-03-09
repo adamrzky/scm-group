@@ -70,8 +70,8 @@
                                             {{-- <td> {{ $item['product']['name'] }} </td> --}}
 
                                             <td>
-                                            <a href="{{ route('trx.detail', $item['product2']['SystemBatch']) }}" class="btn btn-info sm"
-                                                title="Detail Trx"> <i class="fas fa-eyes"></i> Batch History </a>
+                                            <a href="{{ route('trx.detail', $item['product2']['VendorBatch']) }}" class="btn btn-info sm"
+                                                title="Detail Trx"> <i class="fas fa-eyes"></i> Detail Trx </a>
                                             </td>
 
                                         </tr>
