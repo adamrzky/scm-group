@@ -38,7 +38,7 @@
                                         <th>Product Name</th>
                                         <th>Batch</th>
                                         <th>Qty</th>
-                                        <th>Description</th>
+                                        <th>Created By</th>
                                         {{-- <th>Status</th> --}}
                                         <th>Action</th>
                                         {{-- <th>Supplier</th> --}}
@@ -65,7 +65,7 @@
                                             
                                             
                                             <td> {{ $item->qty_in }} </td>
-                                            <td> {{ $item->description }} </td>
+                                            <td> {{ $item['user']['name'] }} </td>
                                             {{-- <td> {{ $item['category']['name'] }} </td> --}}
                                             {{-- <td> {{ $item['product']['name'] }} </td> --}}
 
