@@ -92,6 +92,7 @@
                                                             <td class="text-center"><strong>Date</strong></td>
                                                             <td class="text-center"><strong>SOC</strong></td>
                                                             <td class="text-center"><strong>Customer Name </strong></td>
+                                                            <td class="text-center"><strong>Deskripsi </strong></td>
                                                             <td class="text-center"><strong>Status Trx </strong></td>
                                                             <td class="text-center"><strong>QTY </strong></td>
                                                             
@@ -117,6 +118,9 @@
                                                                 </td>
                                                                 <td class="text-center">
                                                                     {{ $item['customer']['name'] ?? '-' }}
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    {{ $item->description }}
                                                                 </td>
                                                                 <td class="text-center">
                                                                     @if ($item->status_trx == 0)

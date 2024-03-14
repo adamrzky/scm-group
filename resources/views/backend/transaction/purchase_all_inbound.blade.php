@@ -36,8 +36,9 @@
                                         <th>SLOC</th>
                                         {{-- <th>Customer Name</th> --}}
                                         <th>Product Name</th>
-                                        <th>Batch</th>
+                                        <th>VendorBatch</th>
                                         <th>Qty</th>
+                                        <th>Deskripsi</th>
                                         <th>Created By</th>
                                         {{-- <th>Status</th> --}}
                                         <th>Action</th>
@@ -57,14 +58,15 @@
                                             {{-- <td> {{ $item['customer']['name'] }} </td> --}}
                                             <td> {{ $item['product2']['MaterialDesscription'] }} </td>
                                             {{-- <td> {{ $item['product2']['SystemBatch'] }} </td> --}}
-                                            <td class="clickable-cell" data-system-batch="{{ $item['product2']['SystemBatch'] }}">
-                                                <div class="btn btn-info sm" title="Detail Trx"> <i class="fas fa-eyes"></i> {{ $item['product2']['SystemBatch'] }} </div>
+                                            <td class="clickable-cell" data-system-batch="{{ $item['product2']['VendorBatch'] }}">
+                                                <div class="btn btn-info sm" title="Detail Trx"> <i class="fas fa-eyes"></i> {{ $item['product2']['VendorBatch'] }} </div>
                                             </td>
                                             
                                             
                                             
                                             
                                             <td> {{ $item->qty_in }} </td>
+                                            <td> {{ $item->description }} </td>
                                             <td> {{ $item['user']['name'] }} </td>
                                             {{-- <td> {{ $item['category']['name'] }} </td> --}}
                                             {{-- <td> {{ $item['product']['name'] }} </td> --}}
