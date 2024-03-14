@@ -88,8 +88,9 @@
                                                 <table class="table">
                                                     <thead>
                                                         <tr>
-                                                            <td><strong>Sl</strong></td>
+                                                            <td><strong>No</strong></td>
                                                             <td class="text-center"><strong>Date</strong></td>
+                                                            <td class="text-center"><strong>SOC</strong></td>
                                                             <td class="text-center"><strong>Customer Name </strong></td>
                                                             <td class="text-center"><strong>Status Trx </strong></td>
                                                             <td class="text-center"><strong>QTY </strong></td>
@@ -110,6 +111,9 @@
                                                                 <td>{{ $key + 1 }}</td>
                                                                 <td class="text-center">
                                                                     {{ $item->date}}
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    {{ $item->purchase_no}}
                                                                 </td>
                                                                 <td class="text-center">
                                                                     {{ $item['customer']['name'] ?? '-' }}
