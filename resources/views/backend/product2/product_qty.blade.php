@@ -78,7 +78,7 @@
                                                 <option value="{{ $cust->id }}">{{ $cust->name }} - {{ $cust->area }}
                                                     {{ $cust->idh_no }}</option>
                                             @endforeach
-                                            <option value="0">New Customer </option>
+                                            {{-- <option value="0"> Lain Lain </option> --}}
                                         </select>
                                     </div>
                                     
