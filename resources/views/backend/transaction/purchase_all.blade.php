@@ -31,7 +31,7 @@
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead>
                                     <tr>
-                                        <th>Sl</th>
+                                        <th>No</th>
                                         <th>Date </th>
                                         <th>SOC</th>
                                         <th>Customer Name</th>
