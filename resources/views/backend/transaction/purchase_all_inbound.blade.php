@@ -34,6 +34,7 @@
                                         <th>No</th>
                                         <th>Date </th>
                                         <th>SLOC</th>
+                                        <th>KodeBarang</th>
                                         {{-- <th>Customer Name</th> --}}
                                         <th>Product Name</th>
                                         <th>VendorBatch</th>
@@ -55,6 +56,7 @@
                                             <td> {{ $key + 1 }} </td>
                                             <td> {{ date('d-m-Y', strtotime($item->date)) }} </td>
                                             <td> {{ $item['product2']['SLoc']}} </td>
+                                            <td> {{ $item['product2']['MaterialNo'] }} </td>
                                             {{-- <td> {{ $item['customer']['name'] }} </td> --}}
                                             <td> {{ $item['product2']['MaterialDesscription'] }} </td>
                                             {{-- <td> {{ $item['product2']['SystemBatch'] }} </td> --}}
@@ -73,7 +75,10 @@
 
                                             <td>
                                             <a href="{{ route('trx.detail', $item['product2']['VendorBatch']) }}" class="btn btn-info sm"
-                                                title="Detail Trx"> <i class="fas fa-eyes"></i> Detail Trx </a>
+                                                title="Detail Trx"> <i class="fas fa-eyes"></i> Detail </a>
+                                           
+                                            <a href="{{ route('trx.reverse', $item['product2']['VendorBatch']) }}" class="btn btn-danger sm"
+                                                title="Reverse Trx"> <i class="fas fa-eyes"></i> Reverse </a>
                                             </td>
 
                                         </tr>

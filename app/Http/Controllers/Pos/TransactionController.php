@@ -8,6 +8,7 @@ use App\Models\Purchase;
 use App\Models\Transaction;
 use App\Models\Supplier;
 use App\Models\Product;
+use App\Models\Product2;
 use App\Models\Unit;
 use App\Models\Category;
 use App\Models\Customer;
@@ -30,16 +31,71 @@ class TransactionController extends Controller
 
     public function purchaseDetail($systemBatch)
     {
-        $batch = $systemBatch ;
+        $batch = $systemBatch;
         $allData = Transaction::whereHas('product2', function ($query) use ($systemBatch) {
             $query->where('VendorBatch', $systemBatch);
         })->orderBy('date', 'desc')
-          ->orderBy('id', 'desc')
-          ->get();
-    
-        return view('backend.transaction.purchase_detail', compact('allData','batch'));
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('backend.transaction.purchase_detail', compact('allData', 'batch'));
     }
-    
+
+    public function PurchaseReverse($id)
+    {
+
+        $trx =  Transaction::where('id', $id)->get();
+        // dd($trx[0]['product_id']);
+
+        $product = Product2::where('id', $trx[0]['product_id'])
+            ->get();
+
+            // dd($product);
+
+        $vendor = Product2::where('MaterialNo', $product[0]['MaterialNo'])
+            ->get();
+
+        // dd($vendor);
+        return view('backend.transaction.purchase_reverse', compact('vendor', 'trx', 'product'));
+    }
+
+    public function PurchaseReverseStore(Request $request)
+    {
+
+        // dd($request);
+
+        $qty_out = json_decode($request['trx'], true)[0]['qty_out'];
+        // dd($qty_out);
+
+        $product = Product2::findOrFail(json_decode($request['trx'], true)[0]['product_id']);
+        $product->Qty += $qty_out;
+        $product->save();
+
+        $product = Product2::findOrFail($request['target']);
+        $product->Qty -= $qty_out;
+        $product->save();
+
+        $Transaction = Transaction::findOrFail(json_decode($request['trx'], true)[0]['id']);
+        $Transaction->product_id = $request['target'];
+        $Transaction->save();
+
+
+
+
+
+   
+
+
+        // $product = Product2::where('id', $request)
+        //     ->get();
+
+            $notification = array(
+                'message' => 'Status Approved Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('trx.all')->with($notification);
+    }
+
 
 
     public function PurchaseInAll()

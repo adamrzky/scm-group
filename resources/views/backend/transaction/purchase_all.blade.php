@@ -74,10 +74,13 @@
                                                 title="Detail Trx"> <i class="fas fa-eyes"></i> Detail Trx </a>
                                             </td> --}}
                                             <td>
-                                                <a href="{{ route('trx.detail', $item['product2']['VendorBatch']) }}" class="btn btn-info sm"
-                                                    title="Edit Data"> <i class="fas fa-edit"></i> </a>
-
-                                            </td>
+                                                <a href="{{ route('trx.detail', $item['product2']['VendorBatch']) }}"
+                                                    class="btn btn-info sm" title="Detail Trx"> <i class="fas fa-eyes"></i>
+                                                    Detail </a>
+                                            
+                                                <a href="{{ route('trx.reverse', $item->id) }}" class="btn btn-danger sm"
+                                                    title="Reverse Trx"> <i class="fas fa-eyes"></i> Reverse </a>
+                                                </td>
                                             {{-- <td>
                                                 @if ($item->status == '0')
                                                     <span class="btn btn-warning">Pending</span>
