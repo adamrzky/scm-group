@@ -35,6 +35,8 @@
                                         <th>Date </th>
                                         <th>SOC</th>
                                         <th>Customer Name</th>
+                                        <th>SLOC</th>
+                                        <th>KodeBarang</th>
                                         <th>Product Name</th>
                                         <th>Vendor Batch</th>
                                         <th>Qty</th>
@@ -56,6 +58,8 @@
                                             <td> {{ date('d-m-Y', strtotime($item->date)) }} </td>
                                             <td> {{ $item->purchase_no }} </td>
                                             <td> {{ $item['customer']['name'] }} </td>
+                                            <td> {{ $item['product2']['SLoc'] }} </td>
+                                            <td> {{ $item['product2']['MaterialNo'] }} </td>
                                             <td> {{ $item['product2']['MaterialDesscription'] }} </td>
                                             <td> {{ $item['product2']['VendorBatch'] }} </td>
                                             <td> {{ $item->buying_qty }} </td>
