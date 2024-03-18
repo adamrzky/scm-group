@@ -122,8 +122,8 @@ class TransactionController extends Controller
     public function PurchaseEdit($id)
     {
         $data = Transaction::where('id', $id)->firstOrFail();
-        $costomer = Customer::all();
-        return view('backend.transaction.purchase_edit', compact('data', 'costomer'));
+        $customer = Customer::all();
+        return view('backend.transaction.purchase_edit', compact('data', 'customer'));
     } // End Method 
 
     public function TrxUpdate(Request $request)
@@ -142,6 +142,7 @@ class TransactionController extends Controller
 
                 'purchase_no' => $request->soc,
                 'customer_id' => $request->customer_id,
+                'date' => $request->date,
                 // 'MaterialDesscription' => $request->MaterialDesscription,
                 // 'Qty' => $request->Qty,
                 // 'Uom' => $request->Uom,
