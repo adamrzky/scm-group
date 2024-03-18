@@ -119,6 +119,56 @@ class TransactionController extends Controller
         return view('backend.transaction.purchase_add', compact('supplier', 'unit', 'category'));
     } // End Method 
 
+    public function PurchaseEdit($id)
+    {
+        $data = Transaction::where('id', $id)->firstOrFail();
+        $costomer = Customer::all();
+        return view('backend.transaction.purchase_edit', compact('data', 'costomer'));
+    } // End Method 
+
+    public function TrxUpdate(Request $request)
+    {
+
+        // dd($request);
+        try {
+            
+
+            $id = $request->id;
+
+          
+
+            Transaction::findOrFail($id)->update([
+
+
+                'purchase_no' => $request->soc,
+                'customer_id' => $request->customer_id,
+                // 'MaterialDesscription' => $request->MaterialDesscription,
+                // 'Qty' => $request->Qty,
+                // 'Uom' => $request->Uom,
+                // 'SystemBatch' => $request->SystemBatch,
+                // 'VendorBatch' => $request->VendorBatch,
+                // 'created_by' => $request->created_by,
+                // 'updated_by' => Auth::user()->id,
+                // 'created_at' => $request->created_at, // Pastikan format tanggal sesuai dengan format yang diterima oleh database Anda
+                // 'updated_at' => now(),
+            ]);
+
+            $notification = [
+                'message' => 'Product Updated Successfully',
+                'alert-type' => 'success'
+            ];
+
+            return redirect()->route('trx.all')->with($notification);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            $notification = [
+                'message' => 'Product not found.',
+                'alert-type' => 'error'
+            ];
+
+            return redirect()->back()->with($notification);
+        }
+    }
+
 
     public function PurchaseStore(Request $request)
     {

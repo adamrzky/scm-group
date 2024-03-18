@@ -75,8 +75,11 @@
                                             </td> --}}
                                             <td>
                                                 <a href="{{ route('trx.detail', $item['product2']['VendorBatch']) }}"
-                                                    class="btn btn-info sm" title="Detail Trx"> <i class="fas fa-eyes"></i>
+                                                    class="btn btn-success sm" title="Detail Trx"> <i class="fas fa-eyes"></i>
                                                     Detail </a>
+                                                <a href="{{ route('trx.edit', $item->id) }}"
+                                                    class="btn btn-info sm" title="Edit Trx"> <i class="fas fa-edit"></i>
+                                                    Edit </a>
                                             
                                                 <a href="{{ route('trx.reverse', $item->id) }}" class="btn btn-danger sm"
                                                     title="Reverse Trx"> <i class="fas fa-eyes"></i> Reverse </a>

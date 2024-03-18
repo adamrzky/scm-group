@@ -153,12 +153,14 @@ Route::controller(TransactionController::class)->group(function () {
     Route::get('/trxIn.all', 'PurchaseInAll')->name('trxIn.all'); 
     Route::get('/trx.add', 'PurchaseAdd')->name('trx.add');
     Route::get('/trx/detail/{id}', 'PurchaseDetail')->name('trx.detail');
+    Route::get('/trx/edit/{id}', 'PurchaseEdit')->name('trx.edit');
     Route::get('/trx/reverse/{id}', 'PurchaseReverse')->name('trx.reverse');
     Route::post('/trx.store', 'PurchaseStore')->name('trx.store');
     Route::post('/trx.reverseStore', 'PurchaseReverseStore')->name('trx.reverseStore');
     Route::get('/trx.delete/{id}', 'PurchaseDelete')->name('trx.delete');
     Route::get('/trx.pending', 'PurchasePending')->name('trx.pending');
     Route::get('/trx.approve/{id}', 'PurchaseApprove')->name('trx.approve');
+    Route::post('/trx/update', 'trxUpdate')->name('trx.update');
 
     Route::get('/daily/trx.report', 'DailyPurchaseReport')->name('daily.trx.report');
     Route::get('/daily/trx.pdf', 'DailyPurchasePdf')->name('daily.trx.pdf');
