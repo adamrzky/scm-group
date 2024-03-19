@@ -40,7 +40,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="Qty" class="form-label">Qty</label>
-                                <input type="text" class="form-control" id="Qty" name="Qty" value="{{ $product->Qty }}" required readonly>
+                                <input type="text" class="form-control" id="Qty" name="Qty" value="{{ $product->Qty }}" required>
                             </div>
                             <div class="mb-3">
                                 <label for="Uom" class="form-label">UOM</label>
